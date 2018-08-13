@@ -1,0 +1,59 @@
+{
+  "extEnable":true,
+  "pages":[
+    "pages/shop/mall/mall",
+    "pages/shop/bcart/index",
+    "pages/shop/mallcate/mallcate",
+    "pages/shop/malllist/malllist",
+    "pages/shop/malldetail/malldetail",
+    "pages/shop/mallquan/index",
+    "pages/shop/mallquanlist/index",
+    "pages/shop/mallquanselect/index",
+    "pages/shop/mallpeisong/index",
+    "pages/shop/mallwuliu/index",
+    "pages/shop/mallcart/mallcart",
+    "pages/shop/mallsure/mallsure",
+    "pages/shop/orderpay/index",
+    "pages/shop/order/list/index",
+    "pages/shop/order/info/index",
+    "pages/shop/order/comment/index",
+    "pages/shop/shop/address_list/index",
+    "pages/shop/shop/address_add/index",
+    "pages/coupon/card_list/index",
+    "pages/user/user_index/index",
+    "pages/user/user_edit/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#009aff",
+    "navigationBarTitleText": "产品展示",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color":"#292929",
+    "selectedColor":"#009aff",
+    "backgroundColor":"#fff",
+    "borderStyle":"black",
+    "list": [{
+			  "pagePath": "pages/shop/mall/mall",
+			  "text": "商城",
+			  "iconPath":"images/tabbar/DuoguanShop-template-blue/shop.png",
+			  "selectedIconPath":"images/tabbar/DuoguanShop-template-blue/shop_in.png"
+			},{
+			  "pagePath": "pages/shop/mallcate/mallcate",
+			  "text": "分类",
+			  "iconPath":"images/tabbar/DuoguanShop-template-blue/shop_cate.png",
+			  "selectedIconPath":"images/tabbar/DuoguanShop-template-blue/shop_cate_in.png"
+			},{
+			  "pagePath": "pages/shop/bcart/index",
+			  "text": "购物车",
+			  "iconPath":"images/tabbar/DuoguanShop-template-blue/shop_cart.png",
+			  "selectedIconPath":"images/tabbar/DuoguanShop-template-blue/shop_cart_in.png"
+			},{
+			  "pagePath": "pages/user/user_index/index",
+			  "text": "我的",
+			  "iconPath":"images/tabbar/DuoguanShop-template-blue/user.png",
+			  "selectedIconPath":"images/tabbar/DuoguanShop-template-blue/user_in.png"
+			}]
+  }
+}

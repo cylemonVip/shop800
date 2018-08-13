@@ -1,0 +1,228 @@
+<block wx:if="{{glo_is_load}}">
+    <view class="glo_load_view">
+        <text class="iconfont icon-loading animated infinite rotate mr5"></text><text>正在努力加载</text>
+    </view>
+</block>
+<block wx:else>
+<!--mall.wxml-->
+<view class="search flex">
+  <text class="iconfont icon-saoyisao" bindtap="shop_saoma_bind"></text>
+  <view class="search-box sub">
+    <view class="flex">
+      <input class="sub search-input" type="text" placeholder="请搜索商品" confirm-type="search" bindconfirm="goods_search_bind"/>
+      <button size="mini" class="search-btn"><icon type="search" size="18" /></button>
+     </view>
+  </view>
+  <button class="contact-button" open-type="contact"><text class="iconfont icon-mark"></text></button>
+</view>
+
+<!--home swiper start-->
+<view class="swiper">
+  <swiper indicator-dots="true" autoplay="true" indicator-color="rgba(0,0,0,0.5)" indicator-active-color="#ffffff" current="0" interval="3000" duration="600" class="swiper-box">
+    <block wx:for="{{index_data.index_swiper_list}}">
+      <swiper-item>
+        <image src="{{item.img_url}}" bindtap="swiper_top_bind" data-url="{{item.url}}" class="swiper-img" mode="aspectFill"/>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!--home swiper end-->
+
+<!--home cap start-->
+<view class="menu tc clearfix" wx:if="{{index_data.index_cate_list}}">
+<block wx:for="{{index_data.index_cate_list}}">
+    <view class="menu-item" bindtap="mall_list_bind" id="{{item.id}}">
+        <image src="{{item.icon}}" class="menu-item-img" mode="aspectFill"></image>
+        <view class="menu-txt lineText">{{item.name}}</view>
+    </view>
+</block>    
+</view>
+<!--home cap end-->
+
+<!--home brand start-->
+<view wx:if="{{index_data.index_pinpai_list.length > 0}}">
+<view class="home-tit gridXb tc f16">
+    <text class="iconfont icon-crownfill"></text> 品牌专区
+</view>
+<view class="brand-box">
+  <scroll-view class="brand-home" scroll-x="true" scroll-with-animation="true">
+    <block wx:for="{{index_data.index_pinpai_list}}">
+      <view class="brand-list" bindtap="mall_list_bind2" id="{{item.id}}">
+        <image src="{{item.icon}}" class="brand-img" mode="aspectFill"></image>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+</view>
+<!--home brand end-->
+
+
+<!--领取优惠券 start-->
+<block wx:if="{{index_data.index_quan_list!=null}}">
+<view class="card-tit mt10 gridXb">
+  <text class="iconfont icon-ticket"></text>专享优惠券
+</view>
+
+<view class="card clearfix">
+<block wx:for="{{index_data.index_quan_list}}">
+  <view class="card-item" bindtap="go_quan_info_bind" id="{{item.id}}">
+    <view class="flex card-info">
+      <view class="card-count sub">
+         <view class="cards">
+          <view class="card-counts gridXb f24">￥{{item.q_dai_jiner}}</view>
+          <view class="card-tips">{{item.q_name}}</view>
+         </view>
+      </view>
+      <view class="card-txt">
+          <view class="card-txt-box">立即领取</view>
+      </view>
+    </view>
+  </view>
+</block>
+</view>
+</block>
+<!--领取优惠券 end-->
+<!-- 二张广告图 start-->
+<view wx:if="{{index_data.index_ad_list.length > 0}}">
+<view class="ads clearfix ads-{{index_data.index_ad_list.length}}th">
+  <block wx:for="{{index_data.index_ad_list}}">
+    <view class="ads-item"><image src="{{item.img_url}}" bindtap="shop_ad_bind" data-url="{{item.url}}" mode="aspectFill" class="ads-img"></image></view>
+  </block>  
+</view>
+</view>
+<!-- 二张广告图 end-->
+
+<!--
+<view class="ads clearfix ads-3th">
+    <view class="ads-item"><image src="/images/2.jpg" mode="aspectFill" class="ads-img"></image></view>
+    <view class="ads-item"><image src="/images/2.jpg" mode="aspectFill" class="ads-img"></image></view>
+    <view class="ads-item"><image src="/images/2.jpg" mode="aspectFill" class="ads-img"></image></view>
+</view>
+-->
+
+<!--home top start-->
+<view wx:if="{{index_data.index_tuijian_list.length > 0}}">
+<view class="home-tit gridXb tc f16" >
+    <text class="iconfont icon-appreciatefill"></text> 店家推荐
+</view>
+<view class="home-rec flex">
+<block wx:for="{{index_data.index_tuijian_list}}">
+    <view class="rec-item sub" bindtap="detail" id="{{item.id}}">
+        <view class="rec-imgbox"><image src="{{item.g_img}}" class="rec-img" mode="aspectFill"></image></view>
+        <view class="good-name lineText2">
+            <text>{{item.g_name}}</text>
+        </view>
+        <view class="good-price">
+          <block wx:if="{{item.promote_status == 1}}">
+            <text class="iconfont icon-cu"></text>
+            <text class="f16">￥{{item.promote_price}}</text>
+            <view class="delLine grey ml5 f12">￥{{item.shop_price}}</view>
+          </block>
+          <block wx:else>
+              <block wx:if="{{item.vip_price > 0}}">
+                  <text class="iconfont icon-vip"></text>
+                  <text class="f16">￥{{item.vip_price}}</text>
+                  <view class="delLine grey ml5 f12">￥{{item.shop_price}}</view>
+              </block>
+              <block wx:else>
+                  <text class="f16">￥{{item.shop_price}}</text>
+                  <view class="delLine grey ml5 f12">￥{{item.market_price}}</view>
+              </block>
+            </block>
+
+        </view>
+    </view>
+</block>  
+</view>
+</view>
+<!--home top start-->
+<!--home hot start-->
+<view wx:if="{{index_data.index_hot_list.length > 0}}">
+<view class="home-tit home-tit2 gridXb tc f16" >
+    <text class="iconfont icon-hotfill"></text> 热品推荐
+</view>
+<view class="home-rec flex">
+<block wx:for="{{index_data.index_hot_list}}">
+    <view class="rec-item sub" bindtap="detail" id="{{item.id}}">
+        <view class="rec-imgbox"><image src="{{item.g_img}}" class="rec-img" mode="aspectFill"></image></view>
+        <view class="good-name lineText2">
+            <text>{{item.g_name}}</text>
+        </view>
+        <view class="good-price">
+           <block wx:if="{{item.promote_status == 1}}">
+            <text class="iconfont icon-cu"></text>
+            <text class="f16">￥{{item.promote_price}}</text>
+            <view class="delLine grey ml5 f12">￥{{item.shop_price}}</view>
+          </block>
+          <block wx:else>
+              <block wx:if="{{item.vip_price > 0}}">
+                  <text class="iconfont icon-vip"></text>
+                  <text class="f16">￥{{item.vip_price}}</text>
+                  <view class="delLine grey ml5 f12">￥{{item.shop_price}}</view>
+              </block>
+              <block wx:else>
+                  <text class="f16">￥{{item.shop_price}}</text>
+                  <view class="delLine grey ml5 f12">￥{{item.market_price}}</view>
+              </block>
+            </block>
+        </view>
+    </view>
+</block>
+</view>
+</view>
+<!--home hot start-->
+<!--home list start-->
+<view wx:if="{{index_data.index_new_list.length > 0}}">
+<view class="goods-tit tc f16">
+    <text class="iconfont icon-heart-full-copy"></text> 新品上架
+</view>
+
+<view class="goods clearfix">
+<block wx:for="{{index_data.index_new_list}}">
+    <view class="goods-item" bindtap="detail" id="{{item.id}}">
+        <view class="goods-imgbox"><image src="{{item.g_img}}" class="goods-img" mode="aspectFill"></image></view>
+        <view class="goods-info">
+            <view class="goods-name lineText2">
+                <text>{{item.g_name}}</text>
+            </view>
+            <view class="goods-price">
+            
+          <block wx:if="{{item.promote_status == 1}}">
+            <text class="iconfont icon-cu"></text>
+            <text class="f16">￥{{item.promote_price}}</text>
+            <text class="delLine grey ml5 f12">￥{{item.shop_price}}</text>
+          </block>
+          <block wx:else>
+              <block wx:if="{{item.vip_price > 0}}">
+                  <text class="iconfont icon-vip"></text>
+                  <text class="f16">￥{{item.vip_price}}</text>
+                  <text class="delLine grey ml5 f12">￥{{item.shop_price}}</text>
+              </block>
+              <block wx:else>
+                  <text class="f16">￥{{item.shop_price}}</text>
+                  <text class="delLine grey ml5 f12">￥{{item.market_price}}</text>
+              </block>
+            </block>
+
+            </view>
+        </view>
+    </view>
+</block>
+</view>
+</view>
+<!--home list end-->
+
+<!--tips-->
+<view class="tips-foot tc f12 grey">
+    不要扯了，已经扯到底了
+</view>
+</block>
+
+<!--右侧浮动-->
+<view class="backtop">
+  <view class="icon-homefill kefu" style="position:relative">
+    <button open-type="contact" style="width:100%;height:100%;position:absolute;opacity:0;z-index:1"></button>
+    <text class="iconfont icon-mark"></text>
+  </view>
+   <text class="iconfont icon-cart aside-icon" bindtap="bind_go_cart"></text>
+</view>

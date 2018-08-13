@@ -1,0 +1,33 @@
+page{ background: #eee; font-size:32rpx;}
+.Member_head{position: relative; padding:60rpx;}
+.Member_img{text-align: center;}
+.Member_head .bianji{position: absolute;top:30rpx;right: 30rpx;}
+.bianji_ico{float: left;}
+.bianji_ico image{vertical-align:middle;}
+.bianji_text{float:right;padding-left:2px;}
+.userinfo_name{clear: both;width:100%;padding-top:10px;}
+.Member_head .bianji image{width:16px;height:16px;}
+.Member_menoy{position: absolute;bottom:10px;left: 50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);height: 30px;line-height: 30px;background: #fff;padding:0 20px;-webkit-border-radius: 5px;border-radius: 5px;color:#09bb07;}
+
+.Member_head .vip{position: absolute;top:50%;left: 50%;margin: -10px 0 0 20px;}
+.vip_ico image{width:30px;height: 30px;color:#fff;background: #fff;border-radius: 50%;}
+.userinfo-avatar{border-radius: 50%;width: 80px;height: 80px;border:5px solid rgba(255, 255, 255, 0.6); box-shadow: 2px 6px 16px rgba(0, 0, 0, 0.1)}
+
+.member_info view{background: #fff;margin-top:10px;padding:15px 10px;font-size:14px;}
+.member_info view text{color:#333;}
+
+.userinfo_paylink span{float:right;font-size:16px;}
+.userinfo_bbspost span{float:right;font-size:16px;}
+.userinfo_orderlist span{float:right;font-size:16px;}
+.userinfo_address span{float:right;font-size:16px;}
+
+
+/*my.wxss*/
+.my-menu-box{ background: #fff; border-radius: 12rpx; margin: 20rpx 40rpx;}
+.my-menu-item{ padding:30rpx; font-weight: bold; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);}
+.arrowL{ display: block; padding-left: 30px;}
+.arrowRv::before{ -webkit-transform:translateY(-50%) scale(0.7) rotate(135deg);transform:translateY(-50%) scale(0.7) rotate(135deg); }
+.my-menu-subitem{ padding: 12px 20px 12px 10px;}
+.my-menu-subitem:active{ background: rgba(0, 0, 0, 0.1)}
+.copyright{  text-align: center; line-height:40px; height: 40px; margin-bottom: 10px;}
+.copyright-text{ width: 100%;font-size:12px;}
